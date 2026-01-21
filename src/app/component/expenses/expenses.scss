@@ -1,0 +1,53 @@
+$bg: #111114;
+$box: #19181f;
+$green: #02ffb2;
+$gray: #d5d5d5;
+$border: rgba(255, 255, 255, 0.1);
+
+h2 {
+  font-weight: 300;
+}
+table {
+  position: relative;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 1rem;
+  font-size: 14px;
+  color: $gray;
+
+  th {
+    text-align: left;
+    padding: 3px;
+  }
+
+  td {
+    padding: 3px;
+
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  tbody {
+    width: 100%;
+  }
+
+  .delete {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.no-expenses {
+  position: absolute;
+  left: 50%;
+  color: $gray;
+  top: 100px;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  height: 100%;
+}

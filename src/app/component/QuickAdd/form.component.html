@@ -1,0 +1,29 @@
+<form>
+  <div class="row">
+    <div class="input">
+      <h3>Name</h3>
+      <input type="text" [(ngModel)]="name" name="name" placeholder="What did u buy?" />
+    </div>
+    <div class="input">
+      <h3>Amount</h3>
+      <input
+        type="number"
+        [(ngModel)]="amount"
+        name="amount"
+        placeholder="Enter amount"
+        step="0.01"
+        min="0"
+      />
+    </div>
+  </div>
+  <div class="input">
+    <h3>Category</h3>
+    <select name="category" id="category" [(ngModel)]="selectedCategory">
+      <option *ngFor="let cat of expenseCategories" [value]="cat.name">
+        {{ cat.name }}
+      </option>
+    </select>
+  </div>
+
+  <button type="button" (click)="onSubmit()">Add Expense</button>
+</form>

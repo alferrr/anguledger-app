@@ -1,0 +1,28 @@
+<div class="expense-list">
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+
+    <tbody *ngIf="expenses.length > 0; else noExpenses">
+      <tr *ngFor="let expense of expenses" class="row">
+        <td>{{ formatDate(expense.date) }}</td>
+        <td>{{ expense.name || 'No name' }}</td>
+        <td>{{ expense.category }}</td>
+        <td>₱{{ expense.amount.toFixed(2) }}</td>
+        <td class="delete">
+          <ng-icon name="matDelete" (click)="deleteExpense(expense.id)"></ng-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noExpenses>
+    <div class="no-expenses">No expenses yet. Add your first expense!</div>
+  </ng-template>
+</div>
