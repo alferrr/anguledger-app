@@ -322,6 +322,19 @@ body {
   }
 }
 
+// linechart fix
+
+.line-chart-wrapper {
+  width: 100%; /* full width of the container */
+  max-width: 100%; /* prevent overflow */
+  height: 20vh; /* fixed height */
+  position: relative; /* required for Chart.js responsive */
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  // border: 1px solid white;
+}
+
 @media screen and (max-width: 767px) {
   .app {
     flex-direction: column;
