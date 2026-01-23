@@ -40,3 +40,9 @@ $border: rgba(255, 255, 255, 0.1);
     color: #72d874;
   }
 }
+
+@media screen and (max-width: 767px) {
+  header {
+    flex-wrap: wrap;
+  }
+}
