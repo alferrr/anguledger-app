@@ -10,8 +10,10 @@
     </div>
   </header>
 
-  <h3>Remaining</h3>
-  <p [ngClass]="{ over: budget.isOverBudget(), almost: budget.isAlmost(), safe: budget.safe() }">
-    ₱{{ budget.getRemaining() }}
-  </p>
+  <div class="rem">
+    <h3>Remaining</h3>
+    <p [ngClass]="{ over: budget.isOverBudget(), almost: budget.isAlmost(), safe: budget.safe() }">
+      ₱{{ budget.getRemaining() }}
+    </p>
+  </div>
 </div>

@@ -27,21 +27,21 @@ body {
 .app {
   position: relative;
   display: flex;
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
 
-  .sidebar {
-    position: relative;
+  aside {
     border-right: 1px solid $border;
     height: 100vh;
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 300px;
-    position: sticky;
-    top: 0;
+    width: 250px;
+    position: fixed;
     left: 0;
-    z-index: 99;
+    top: 0;
+
     h1 {
       color: $green;
       font-weight: 400;
@@ -77,10 +77,11 @@ body {
     }
   }
 
-  main {
+  .outlet {
     position: relative;
-    // border: 1px solid white;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
+    margin-left: 250px;
 
     .dashboard {
       width: 100%;
@@ -324,21 +325,25 @@ body {
 
 // linechart fix
 
-.line-chart-wrapper {
-  width: 100%; /* full width of the container */
-  max-width: 100%; /* prevent overflow */
-  height: 20vh; /* fixed height */
-  position: relative; /* required for Chart.js responsive */
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  // border: 1px solid white;
+@media screen and (max-width: 1200px) {
+  main {
+    .dashboard {
+      .board:last-child {
+        container {
+          max-height: none;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
   .app {
     flex-direction: column;
 
+    .outlet {
+      margin-left: 0;
+    }
     .sidebar {
       display: none;
     }
@@ -353,7 +358,7 @@ body {
 
           .large,
           .small {
-            width: 100%;
+            width: 100% !important;
           }
         }
 

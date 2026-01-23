@@ -10,6 +10,11 @@ $border: rgba(255, 255, 255, 0.1);
   margin-top: 20px;
   gap: 1em;
 
+  .rem {
+    display: flex;
+    flex-direction: column;
+  }
+
   h3 {
     font-weight: 300;
     font-size: 1rem;
@@ -24,7 +29,9 @@ $border: rgba(255, 255, 255, 0.1);
   header {
     display: flex;
     align-items: center;
+    width: 100%;
     gap: 3em;
+
     p {
       font-size: 3rem;
     }
@@ -41,8 +48,12 @@ $border: rgba(255, 255, 255, 0.1);
   }
 }
 
-@media screen and (max-width: 767px) {
-  header {
-    flex-wrap: wrap;
+@media screen and (max-width: 1200px) {
+  .budget {
+    header {
+      flex-direction: column;
+      align-items: start;
+      gap: 1em;
+    }
   }
 }
