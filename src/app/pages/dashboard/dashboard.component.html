@@ -1,12 +1,26 @@
 <div class="dashboard">
   <header>
     <h1>Main Dashboard</h1>
-    
   </header>
 
   <main class="board">
-    <div class="container large">
-      <h2>Total Expenses</h2>
+    <div class="container large total">
+      <div class="head">
+        <header>
+          <h2>Total Expenses</h2>
+          <nav>
+            <button (click)="changeRange(3)">3D</button>
+            <div class="line"></div>
+            <button (click)="changeRange(7)">7D</button>
+            <div class="line"></div>
+            <button (click)="changeRange(30)">1M</button>
+          </nav>
+        </header>
+        <h3>₱{{ totalExpenses }}</h3>
+      </div>
+      <div class="line-chart">
+        <app-expense-chart [days]="selectedDays"></app-expense-chart>
+      </div>
     </div>
     <div class="container small quick">
       <h2>Quick Add</h2>
@@ -14,15 +28,51 @@
     </div>
   </main>
   <main class="board">
-    <div class="container large">
-      <h2>Your Expenses</h2>
-      <app-expenses />
+    <div class="exp-wrapper container large">
+      <div class="exp">
+        <header>
+          <div class="head">
+            <h2>Your Expenses</h2>
+            <a href="/expenses">See All</a>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+          </table>
+        </header>
+        <app-expenses />
+      </div>
     </div>
-    <div class="container small"></div>
+    <div class="container small pie">
+      <nav>
+        <button (click)="changeRange(3)">3D</button>
+        <div class="line"></div>
+        <button (click)="changeRange(7)">7D</button>
+        <div class="line"></div>
+        <button (click)="changeRange(30)">1M</button>
+      </nav>
+      <app-category-pie [days]="selectedDays"></app-category-pie>
+    </div>
   </main>
   <main class="board bottom">
-    <div class="container small"><h2>Recent Activity</h2></div>
-    <div class="container small"></div>
-    <div class="container small"></div>
+    <div class="container small">
+      <h2>Budget</h2>
+      <app-budget />
+    </div>
+    <div class="container small set">
+      <h2>Set Budget</h2>
+      <h3>₱{{ budget.getBudget() }}</h3>
+      <app-budget-form (saveBudget)="setBudget($event)" (resetBudget)="resetBudget()" />
+    </div>
+    <div class="container small fix">
+      <app-maintenance />
+    </div>
   </main>
 </div>

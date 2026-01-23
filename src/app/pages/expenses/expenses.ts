@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExpensesTable } from '../../component/expenses/expenses';
+import { ExpensesTable } from '../../components/expenses/expenses';
 
 @Component({
   selector: 'expenses',

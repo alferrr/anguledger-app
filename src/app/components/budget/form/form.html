@@ -1,0 +1,13 @@
+<form (ngSubmit)="submit()">
+  <input
+    type="number"
+    [(ngModel)]="amount"
+    name="amount"
+    placeholder="Set monthly budget"
+    required
+  />
+
+  <button type="submit">Save</button>
+</form>
+
+<button (click)="clear()" class="clear">Reset Budget</button>

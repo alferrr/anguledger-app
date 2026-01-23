@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
-import { Sidebar } from './component/Sidebar/sidebar.component'; // adjust path as needed
+import { Sidebar } from './components/Sidebar/sidebar.component'; // adjust path as needed
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   matDashboard,

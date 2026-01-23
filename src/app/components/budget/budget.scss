@@ -1,0 +1,42 @@
+$bg: #111114;
+$box: #19181f;
+$green: #02ffb2;
+$gray: #d5d5d5;
+$border: rgba(255, 255, 255, 0.1);
+
+.budget {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 1em;
+
+  h3 {
+    font-weight: 300;
+    font-size: 1rem;
+    color: gray;
+  }
+  p {
+    font-weight: 400;
+    color: $gray;
+    font-size: 4rem;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    p {
+      font-size: 3rem;
+    }
+  }
+  .over {
+    color: #ef4b4b;
+  }
+  .almost {
+    color: #f9e154;
+  }
+
+  .safe {
+    color: #72d874;
+  }
+}

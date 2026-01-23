@@ -1,0 +1,17 @@
+<div class="budget">
+  <header>
+    <div class="head">
+      <h3>Total</h3>
+      <p>₱{{ budget.getBudget() }}</p>
+    </div>
+    <div class="head">
+      <h3>Spent</h3>
+      <p>₱{{ budget.getSpentThisMonth() }}</p>
+    </div>
+  </header>
+
+  <h3>Remaining</h3>
+  <p [ngClass]="{ over: budget.isOverBudget(), almost: budget.isAlmost(), safe: budget.safe() }">
+    ₱{{ budget.getRemaining() }}
+  </p>
+</div>
