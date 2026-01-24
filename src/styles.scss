@@ -79,6 +79,10 @@ body {
           background: rgba(255, 255, 255, 0.031);
         }
       }
+
+      &.mobile {
+        display: none;
+      }
     }
   }
 
@@ -342,19 +346,35 @@ body {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .app {
+    .outlet {
+      margin-left: 70px;
+    }
+    aside {
+      padding: 10px;
+      width: 70px;
+
+      .pc {
+        display: none;
+      }
+
+      nav {
+        &.mobile {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 767px) {
   .app {
     flex-direction: column;
 
     .outlet {
-      margin-left: 0;
-    }
-    .sidebar {
-      display: none;
-    }
-
-    main {
       .dashboard {
+        padding: 20px;
         .container {
           max-height: none;
         }

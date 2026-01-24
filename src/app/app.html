@@ -1,6 +1,20 @@
 <div class="app">
   <aside class="sidebar">
-    <nav>
+    <nav class="mobile">
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><ng-icon name="matDashboard" class="icon" />
+      </a>
+      <a routerLink="/expenses" routerLinkActive="active"
+        ><ng-icon name="matAttachMoney" class="icon"
+      /></a>
+      <a routerLink="/reports" routerLinkActive="active"
+        ><ng-icon name="matBarChart" class="icon"
+      /></a>
+    </nav>
+    <nav class="pc">
       <h1>Anguledger</h1>
       <a
         routerLink="/dashboard"
@@ -16,7 +30,10 @@
       >
     </nav>
 
-    <nav>
+    <nav class="mobile">
+      <a routerLink="/settings"><ng-icon name="matSettings" class="icon" /></a>
+    </nav>
+    <nav class="pc">
       <a routerLink="/settings"><ng-icon name="matSettings" class="icon" />Settings</a>
     </nav>
   </aside>
