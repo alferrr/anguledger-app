@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { Sidebar } from './components/Sidebar/sidebar.component'; // adjust path as needed
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Sidebar, NgIconComponent, RouterLink],
+  imports: [RouterOutlet, Sidebar, NgIconComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 

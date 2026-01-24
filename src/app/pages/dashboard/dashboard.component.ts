@@ -9,6 +9,7 @@ import { CategoryPie } from '../../components/category-pie/category-pie';
 import { Budget } from '../../components/budget/budget';
 import { BudgetService } from '../../services/budget.service';
 import { BudgetFormComponent } from '../../components/budget/form/form';
+import { Insights } from '../../components/insights/insight';
 
 import { Maintenance } from '../../components/maintenance/maintenance';
 
@@ -24,6 +25,7 @@ import { Maintenance } from '../../components/maintenance/maintenance';
     Budget,
     BudgetFormComponent,
     Maintenance,
+    Insights,
     RouterLink,
   ],
 })

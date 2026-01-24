@@ -5,7 +5,7 @@ import { Reports } from './pages/reports/reports';
 import { Settings } from './pages/settings/settings';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'expenses', component: Expenses },
   { path: 'reports', component: Reports },

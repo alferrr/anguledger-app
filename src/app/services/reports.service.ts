@@ -1,51 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Expense } from '../models/expense.model';
+import { ExpenseService } from './expense.service';
 
-const STORAGE_KEY = 'anguledger_expenses';
-
-@Injectable({ providedIn: 'root' })
-export class ExpenseService {
-  private expenses: Expense[] = [];
-
-  constructor() {
-    this.load();
-  }
-
-  private load() {
-    const data = localStorage.getItem(STORAGE_KEY);
-    this.expenses = data ? JSON.parse(data) : [];
-  }
-
-  private save() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(this.expenses));
-  }
-
-  getAll(): Expense[] {
-    return [...this.expenses];
-  }
-
-  add(expense: Expense) {
-    this.expenses.unshift(expense);
-    this.save();
-  }
-
-  update(updated: Expense) {
-    this.expenses = this.expenses.map((e) => (e.id === updated.id ? updated : e));
-    this.save();
-  }
-
-  delete(id: string) {
-    this.expenses = this.expenses.filter((e) => e.id !== id);
-    this.save();
-  }
-
-  clear() {
-    this.expenses = [];
-    this.save();
-  }
+@Injectable({
+  providedIn: 'root',
+})
+export class ReportService {
+  constructor(private expenseService: ExpenseService) {}
 
   getCategoryTotalsForLastDays(days: number): Record<string, number> {
-    const expenses = this.getExpensesByLastDays(days);
+    const expenses = this.expenseService.getExpensesByLastDays(days);
 
     return expenses.reduce(
       (acc, expense) => {
@@ -57,26 +21,17 @@ export class ExpenseService {
   }
 
   getTotalForLastDays(days: number): number {
-    return this.getExpensesByLastDays(days).reduce((sum, expense) => sum + expense.amount, 0);
+    return this.expenseService
+      .getExpensesByLastDays(days)
+      .reduce((sum, expense) => sum + expense.amount, 0);
   }
 
-  getExpensesByLastDays(days: number) {
-    const start = new Date();
-    start.setDate(start.getDate() - days);
-    start.setHours(0, 0, 0, 0);
-
-    return this.getAll().filter((expense) => {
-      const date = new Date(expense.date);
-      return date >= start;
-    });
-  }
-
-  getDailyTotals(days: number) {
-    const expenses = this.getExpensesByLastDays(days);
+  getDailyTotals(days: number): Record<string, number> {
+    const expenses = this.expenseService.getExpensesByLastDays(days);
 
     return expenses.reduce(
       (acc, expense) => {
-        const day = expense.date.split('T')[0]; // YYYY-MM-DD
+        const day = expense.date.split('T')[0];
         acc[day] = (acc[day] || 0) + expense.amount;
         return acc;
       },
@@ -84,8 +39,8 @@ export class ExpenseService {
     );
   }
 
-  getDailyTotalsFilled(days: number) {
-    const expenses = this.getExpensesByLastDays(days);
+  getDailyTotalsFilled(days: number): Record<string, number> {
+    const expenses = this.expenseService.getExpensesByLastDays(days);
     const result: Record<string, number> = {};
 
     for (let i = days - 1; i >= 0; i--) {
@@ -104,7 +59,8 @@ export class ExpenseService {
   }
 
   getTotalBetween(start: Date, end: Date): number {
-    return this.getAll()
+    return this.expenseService
+      .getAll()
       .filter((e) => {
         const d = new Date(e.date);
         return d >= start && d <= end;
@@ -113,11 +69,15 @@ export class ExpenseService {
   }
 
   getRecent(limit = 5): Expense[] {
-    return [...this.expenses].sort((a, b) => +new Date(b.date) - +new Date(a.date)).slice(0, limit);
+    return [...this.expenseService.getAll()]
+      .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+      .slice(0, limit);
   }
 
   getHighestExpense(days?: number): Expense | null {
-    const list = days ? this.getExpensesByLastDays(days) : this.getAll();
+    const list = days
+      ? this.expenseService.getExpensesByLastDays(days)
+      : this.expenseService.getAll();
 
     return list.length
       ? list.reduce((max: Expense, e: Expense) => (e.amount > max.amount ? e : max), list[0])

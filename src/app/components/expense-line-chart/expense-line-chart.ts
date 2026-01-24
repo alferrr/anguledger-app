@@ -43,11 +43,12 @@ export class ExpenseChartComponent implements AfterViewInit, OnChanges {
           {
             label: 'Expenses',
             data: Object.values(totals),
-            borderColor: '#02ffb2',
+            // borderColor: '#02ffb2',
+            borderColor: '#ffffff1c',
             backgroundColor: gradient,
             pointBackgroundColor: '#02ffb2',
             pointBorderColor: '#ffffff',
-            pointRadius: 4,
+            pointRadius: 0,
             tension: 0.35,
             fill: true,
           },
@@ -69,7 +70,7 @@ export class ExpenseChartComponent implements AfterViewInit, OnChanges {
             duration: 1000,
             easing: 'easeOutQuart',
             from: 0.5,
-            to: 0.35,
+            to: 0,
           },
           y: {
             duration: 1000,

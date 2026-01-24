@@ -69,6 +69,11 @@ body {
         .icon {
           font-size: 1.5rem;
         }
+
+        &.active {
+          border: 1px solid $border;
+          background: rgba(255, 255, 255, 0.031);
+        }
         &:hover {
           border: 1px solid $border;
           background: rgba(255, 255, 255, 0.031);

@@ -1,6 +1,86 @@
-<div class="reports">
-  <h1>Reports</h1>
+<section class="reports">
+  <!-- Header + Date Range -->
+  <header>
+    <h1>Reports</h1>
+    <nav>
+      <button (click)="setRange('week'); changeRange(3)">3D</button>
+      <div class="line"></div>
+      <button (click)="setRange('month'); changeRange(7)">7D</button>
+      <div class="line"></div>
+      <button (click)="setRange('30days'); changeRange(30)">Last 30 Days</button>
+    </nav>
+  </header>
+
   <main>
-    <app-maintenance />
+    <div class="container">
+      <div class="card small">
+        <h3>Total Spent</h3>
+        <p>{{ totalSpent | currency: 'PHP' }}</p>
+      </div>
+      <div class="card small">
+        <h3>Daily Avg</h3>
+        <p>{{ dailyAvg | currency: 'PHP' }}</p>
+      </div>
+      <div class="card small top">
+        <h3>Top Category</h3>
+        <p>{{ topCategory }}</p>
+      </div>
+      <div class="card small">
+        <h3>Highest Expense</h3>
+        <p>{{ highestExpense?.amount | currency: 'PHP' }}</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card large">
+        <div class="head">
+          <h3>Expenses Over Time</h3>
+          <h4>{{ totalSpent | currency: 'PHP' }}</h4>
+        </div>
+        <app-expense-chart [days]="selectedDays"></app-expense-chart>
+      </div>
+
+      <div class="pie card">
+        <h3>By Category</h3>
+        <app-category-pie />
+      </div>
+    </div>
+    <div class="container">
+      <div class="card medium cat">
+        <h3>Category Details</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Total</th>
+              <th>%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cat of categoryDetails">
+              <td>{{ cat.name }}</td>
+              <td>{{ cat.total | currency: 'PHP' }}</td>
+              <td>{{ cat.percent | number: '1.0-0' }}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card medium">
+        <h3>Recent Activity</h3>
+        <ul>
+          <li *ngFor="let expense of recentExpenses">
+            {{ expense.date | date: 'shortDate' }} - {{ expense.category }}: ₱{{ expense.amount }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="card medium">
+        <h3>Insights</h3>
+        <ul>
+          <li *ngFor="let insight of insights">{{ insight }}</li>
+        </ul>
+      </div>
+    </div>
   </main>
-</div>
+</section>

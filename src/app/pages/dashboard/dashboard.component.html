@@ -71,8 +71,9 @@
       <h3>₱{{ budget.getBudget() }}</h3>
       <app-budget-form (saveBudget)="setBudget($event)" (resetBudget)="resetBudget()" />
     </div>
-    <div class="container small fix">
-      <app-maintenance />
+    <div class="container small insight">
+      <h2>Insights</h2>
+      <app-insight [days]="selectedDays"></app-insight>
     </div>
   </main>
 </div>
