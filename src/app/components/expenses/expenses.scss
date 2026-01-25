@@ -82,6 +82,7 @@ table {
 
   tbody {
     width: 100%;
+    position: relative;
 
     .row {
       padding: 8px;
@@ -96,6 +97,7 @@ table {
 
 table {
   z-index: 2;
+  position: relative;
 }
 
 .no-expenses {
@@ -131,6 +133,7 @@ table {
       margin-top: 12px;
       gap: 8px;
       width: 100% !important;
+      position: relative;
 
       td {
         border: none;
@@ -138,6 +141,7 @@ table {
         display: flex;
         justify-content: space-between;
         gap: 2rem;
+        position: relative;
 
         span {
           display: inline;
@@ -146,13 +150,16 @@ table {
 
         div {
           width: 5rem;
+          position: relative;
           margin-right: 3rem;
           // border: 1px solid white;
         }
 
         &:last-child {
-          text-align: left;
-          display: none;
+          text-align: right;
+          position: absolute;
+          right: 20px;
+          top: 20px;
         }
       }
     }
