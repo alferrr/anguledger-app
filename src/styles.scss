@@ -30,7 +30,7 @@ body {
   width: 100%;
   overflow: hidden;
 
-  aside {
+  .sidebar {
     border-right: 1px solid $border;
     height: 100vh;
     padding: 20px;
@@ -376,10 +376,8 @@ body {
         width: 100% !important;
 
         min-height: 0 !important;
-        
 
-        &.total{
-          
+        &.total {
         }
       }
     }

@@ -7,6 +7,7 @@ import {
   matAttachMoney,
   matBarChart,
   matSettings,
+  matInfo,
 } from '@ng-icons/material-icons/baseline';
 
 @Component({
@@ -22,6 +23,7 @@ import {
       matAttachMoney,
       matBarChart,
       matSettings,
+      matInfo,
     }),
   ],
 })
