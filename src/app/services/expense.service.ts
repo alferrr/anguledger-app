@@ -62,7 +62,7 @@ export class ExpenseService {
 
   getExpensesByLastDays(days: number) {
     const start = new Date();
-    start.setDate(start.getDate() - days);
+    start.setDate(start.getDate() - (days - 1));
     start.setHours(0, 0, 0, 0);
 
     return this.getAll().filter((expense) => {

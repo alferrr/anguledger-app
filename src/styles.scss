@@ -366,6 +366,24 @@ body {
       }
     }
   }
+
+  .dashboard {
+    .board {
+      flex-direction: column;
+      align-items: stretch;
+
+      .container {
+        width: 100% !important;
+
+        min-height: 0 !important;
+        
+
+        &.total{
+          
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -377,6 +395,16 @@ body {
         padding: 20px;
         .container {
           max-height: none;
+
+          &.exp-wrapper {
+            max-height: 50vh;
+            table {
+              margin-top: 0;
+              th {
+                display: none;
+              }
+            }
+          }
         }
         .board {
           flex-direction: column;
@@ -384,6 +412,10 @@ body {
           .large,
           .small {
             width: 100% !important;
+          }
+
+          .insight {
+            min-height: auto;
           }
         }
 

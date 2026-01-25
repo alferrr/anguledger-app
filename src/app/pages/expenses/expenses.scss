@@ -12,3 +12,16 @@
     margin-top: 20px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .expenses {
+    padding: 20px;
+    table {
+      margin-top: 0;
+
+      th {
+        display: none;
+      }
+    }
+  }
+}

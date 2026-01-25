@@ -29,6 +29,10 @@ table {
     transition: 0.3s ease;
     cursor: pointer;
 
+    span {
+      display: none;
+    }
+
     &:hover {
       color: white;
     }
@@ -110,8 +114,47 @@ table {
     border-spacing: 0 8px;
     font-size: 2px;
     tbody td {
-      font-size: 7px;
+      font-size: 11px;
       padding: 12px 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  table {
+    tr {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid $border;
+      border-radius: 8px;
+      margin-top: 12px;
+      gap: 8px;
+      width: 100% !important;
+
+      td {
+        border: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+        span {
+          display: inline;
+          font-weight: 500;
+        }
+
+        div {
+          width: 5rem;
+          margin-right: 3rem;
+          // border: 1px solid white;
+        }
+
+        &:last-child {
+          text-align: left;
+          display: none;
+        }
+      }
     }
   }
 }

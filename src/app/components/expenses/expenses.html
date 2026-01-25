@@ -1,20 +1,23 @@
 <div class="expense-list">
   <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Amount</th>
-      </tr>
-    </thead>
-
     <tbody *ngIf="expenses.length > 0; else noExpenses">
       <tr *ngFor="let expense of expenses" class="row">
-        <td>{{ formatDate(expense.date) }}</td>
-        <td>{{ expense.name || 'No name' }}</td>
-        <td>{{ expense.category }}</td>
-        <td>₱{{ expense.amount.toFixed(2) }}</td>
+        <td>
+          <span>Date:</span>
+          <div>{{ formatDate(expense.date) }}</div>
+        </td>
+        <td>
+          <span>Name: </span>
+          <div>{{ expense.name || 'No name' }}</div>
+        </td>
+        <td>
+          <span>Category: </span>
+          <div>{{ expense.category }}</div>
+        </td>
+        <td>
+          <span>Amount: </span>
+          <div>₱{{ expense.amount.toFixed(2) }}</div>
+        </td>
         <td class="delete">
           <ng-icon name="matDelete" (click)="deleteExpense(expense.id)"></ng-icon>
         </td>
