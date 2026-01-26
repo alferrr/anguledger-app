@@ -63,7 +63,7 @@ $border: rgba(255, 255, 255, 0.1);
     font-weight: 300;
   }
 
-  .content {
+  .contents {
     width: 50%;
     border-left: 1px solid $border;
     padding: 20px;
@@ -73,13 +73,28 @@ $border: rgba(255, 255, 255, 0.1);
     gap: 1em;
     color: gray;
 
+    pointer-events: none;
     height: 50%;
+
+    p {
+      color: #02ffb2;
+    }
     ul {
       margin-left: 10px;
       display: flex;
       flex-direction: column;
       gap: 1em;
       list-style: none;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about {
+    main {
+      .content {
+        display: none;
+      }
     }
   }
 }
