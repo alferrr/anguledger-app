@@ -18,6 +18,7 @@ export class ExpenseService {
 
   private save() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(this.expenses));
+    location.reload();
   }
 
   getAll(): Expense[] {

@@ -338,8 +338,12 @@ body {
   main {
     .dashboard {
       .board:last-child {
-        container {
+        .container {
           max-height: none;
+
+          &.budg {
+            min-height: auto;
+          }
         }
       }
     }
@@ -376,9 +380,6 @@ body {
         width: 100% !important;
 
         min-height: 0 !important;
-
-        &.total {
-        }
       }
     }
   }
